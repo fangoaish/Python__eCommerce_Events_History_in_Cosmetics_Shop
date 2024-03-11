@@ -14,6 +14,39 @@ The main objective of this analysis is to scrutinize the store's key performance
 ## Data Sources
 This dataset is provided from [kaggle](https://www.kaggle.com/datasets/mkechinov/ecommerce-events-history-in-cosmetics-shop/data?select=2019-Dec.csv)
 
+
+## Data Preparation
+Currently, this raw_events_data stores all of the information from products, website sessions, and website events. Unfortunately, the way this raw data is structured leads to a lot of redundant data being stored, thus making our analysis a lot slower and making it harder for us to make sense of the data.
+
+So before I began looking for insights, I transformed this big clunky raw data into 3 smaller ones by applying a few normalizing principles.
+
+- **products**:
+    - product_id
+    - category_code
+    - brand
+    - price
+- **users**:
+    - user_id
+    - user_session
+- **events**:
+    - event_time
+    - event_type
+    - product_id
+    - user_session
+```ruby
+# Create products table
+products = raw[["product_id", "category_code", "brand", "price"]].drop_duplicates()
+print(products)
+
+# Creat users table
+users = raw[["user_id", "user_session"]].drop_duplicates()
+print(users)
+
+# Creat events talbe
+events = raw[["event_time", "event_type", "product_id", "user_session"]].drop_duplicates()
+print(events)
+```
+
 ## Analysis Framework
 **Objective**: Increase the cosmetics shop's total sales revenue and performance goals.
 
