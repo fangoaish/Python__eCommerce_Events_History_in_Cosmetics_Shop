@@ -3,7 +3,8 @@
 ## Project Overview
 This project aims to analyze the 2020-January eCommerce Events History in Cosmetics Shop data from [kaggle](https://www.kaggle.com/datasets/mkechinov/ecommerce-events-history-in-cosmetics-shop/data?select=2019-Dec.csv) to deep-dive into how customer journeys offer valuable insights into user engagement with digital assets and marketing campaigns. Leveraging this information can enhance the user experience, drive increased website traffic, and ultimately contribute to higher sales and revenue.
 
-![image](https://github.com/fangoaish/Python__Analysis-of-Sportswear-Product-Sales-Adidas-vs.-Nike/assets/51399519/2584a6fa-3c14-4538-9f6d-0a30f3118f7b)
+![image](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/42c7120a-9426-4cd1-8da0-88e63b6fdad2)
+
 
 ## Business Objectives
 
