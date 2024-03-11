@@ -148,7 +148,7 @@ Suggestions: By knowing the popular time and average number of purchases per use
 
 
 ## Limitations
-- The reliability of the findings and the efficacy of the proposed recommendations depend on the quality of the datasets provided.
-- Please be aware that our merged DataFrame contains aggregated sales data for each specific product.
-- Additionally, the recency of all the data remains unknown due to the absence of a datetime parameter in the datasets.
+**Neglect of Pricing Strategy**: By excluding pricing strategy from the analysis, there is a limitation in understanding how price elasticity affects sales volume. Different pricing strategies could impact consumer behavior and ultimately affect sales volume. Ignoring this aspect may lead to missed opportunities for revenue optimization.
+
+**Incomplete Revenue Optimization**: Focusing solely on increasing sales volume without considering pricing strategies may overlook potential avenues for revenue optimization. Maximizing revenue involves a combination of increasing sales volume and optimizing pricing to achieve the highest possible profit margin.
 
