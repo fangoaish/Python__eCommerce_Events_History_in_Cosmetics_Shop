@@ -64,72 +64,58 @@ Business opportunities to increase the number of Units Sold:
 ## Exploratory Data Analysis
 Before diving into the data sea, I'll categorize the hypotheses systematically based on our goal, establishing a structured and logical framework for thoughtful analysis.
 
-### _1) Consumer Preferences_
-- #### **Q:** Does a correlation exist between revenue and reviews?
+### _1) Opportunity 1: Increase more customers_
+- #### 1-1. Acquiring new customers
+    - What do I want to know?
+        - The best-selling products
     - Why do I want to know? 
-        - Explore the strength of any correlation that may exist between a product's revenue and its reviews
+        - Knowing the best-selling products indicates the highest demand
     - So what?     
-        - Implement initiatives to encourage and incentivize customer reviews, fostering increased engagement and potentially driving higher revenues through positive customer feedback
-    - Measure by?
-        - revenue // reviews
-
-- #### **Q:** Is there an influence on a product's rating and reviews based on the length of its description?
-    -  Why do I want to know?
-        - Explore the potential impact of product description length on customer ratings and reviews, addressing the relationship between product information and consumer perception.
-    - So what?
-        - If positive, highlight product features within the optimal description length to attract and engage customers effectively
-    - Measure by?
-        - description // reviews // rating
+        - The best-selling products with high demand can guide the allocation of marketing and advertising spend/effort to acquire new users and sustain existing momentum
+    - Measured by?
+        - event_type // product_id // price
      
-### _1) Consumer Preferences - Findings_
-1. A correlation coefficient of 0.65 could be interpreted as either a "good" or "moderate" correlation. Therefore, there is a positive correlation between revenue and reviews, suggesting that products with higher reviews tend to generate higher revenue.
-2. The correlation coefficient of 0.73 indicates the strength and direction of the linear relationship between description length and the average rating.
-     
-![Correlation between Revenue and Reviews](https://github.com/fangoaish/Python__Analysis-of-Sportswear-Product-Sales-Adidas-vs.-Nike/assets/51399519/43de922e-bb14-4e04-8ed0-9638154a2c54)
-
-![Correlation Between Description Length and Mean Rating](https://github.com/fangoaish/Python__Analysis-of-Sportswear-Product-Sales-Adidas-vs.-Nike/assets/51399519/23ff228c-94d6-49e5-8190-ec332522cdb2)
-
-
-### _1) Consumer Preferences - Recommendations_
-- Leverage the positive correlation observed between revenue and reviews to enhance marketing strategies, emphasizing the importance of customer reviews in promotional campaigns and product positioning.
-- Consider optimizing product descriptions to a length that resonates well with customers. This could potentially lead to higher average ratings.
-
-
-
-### _2) Product Offerings_
-- #### **Q:** Do Nike and Adidas offer differing discount amounts?
-    - Why do I want to know? 
-        - Aim to investigate and compare the discount strategies employed by Nike and Adidas, providing insights into their promotional approaches.
+- #### 1-2. Retaining existing customers
+    - What do I want to know?
+        -  Overall conversion rate
+        -  Cart abandonment rate per user
+    - Why do I want to know?
+        - The shopping cart abandonment rate is the overall percentage of shoppers who added some items to the cart but abandoned it before purchase, depicting potential customers who were able to reach the end of the funneling model but gave up due to some reason.
     - So what?
-        - Navigate the complexities of differing discount amounts, optimizing their strategies to achieve a balance between attracting customers, maintaining brand value, and sustaining profitable operations
-    - Measure by?
-        - brand // discount
+        - A heightened abandonment rate might signal a less streamlined checkout experience, increased shipping costs, ineffective remarketing promotions, or the absence of a guest check-out option. By addressing the purchasing flow issues and improving the customer experience, we can turn lost sales into fresh opportunities.
+    - Measured by?
+        - Conversion Rate = Number of Conversions / Total Number of Visitors
+        - Cart Abandonment Rate = 1 - Cart Conversion Rate (Conversion Rate = Number of Conversions / Shopping Carts Created)
+        - event_type // user_id
+     
+     
+![Top 10 Best Selling Products](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/2578e789-4226-40fb-bf75-b714dad86f29)
+
+![Distribution of events](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/c2aa58f1-8fe7-4e68-9002-8161f05c54c6)
 
 
-- #### **Q:** What distinguishes the price points between Nike and Adidas products?
-    - Why do I want to know?: 
-        - Focus on understanding the comparative pricing strategies of Nike and Adidas, exploring the differences in their product price points.
-    - So what? 
-        - Analyze how the variations in price points may impact consumer perception, market positioning, and business strategies for Nike and Adidas
-    - Measure by?
-        - brand // listing_price
+### _2) Opportunity 2: Increase order frequency_
+- What do I want to know?
+  -  Customer behavior -> What time does order volume tend to be high?
+- Why do I want to know?
+  - To identify the most popular time when people complete their orders and the average purchase number per user.
+- So what?
+  - By knowing the time when order volume is high, we can send email or push notifications around that time to further incentivize users to complete their purchase at that specific time.
+- Measured by?
+  - event_type (view, cart, purchase) // event_time (weekday & hour)
+    
+
+### _2) Opportunity 2: Increase order frequency - Findings_
+
+The view and cart events per hour in a day have reached their peak at around **6 p.m. - 8 p.m.** with a near plateau in the morning between **8 a.m. - 12 p.m.** On the other hand, the purchase event reached its peak around **9 a.m. to 12 p.m.** and gradually decreased afterward until its second peak at roughly **6 p.m. - 7 p.m.** It's obvious that the weekday has a strong effect on customers buying behavior: the numbers of view and cart events are higher from Tuesday to Thursday, while purchase events have higher numbers on **Sunday and Monday**.
+
+![Event Counts per Hour](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/130d1817-d28f-4fbf-a090-5265d9679838)
+
+![Event Counts per Weekday](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/c8841963-7c89-4faa-b0d6-3b7687ab685d)
 
 
-### _2) Product Offerings - Findings_
-
-First, the number of offered discounts by Adidas is **5 times higher** than the ones offered by Nike. Second, both brands offer products in all price categories, but Adidas has a higher number of products in every category compared to Nike. Additionally, it reveals that the _**"Premium" category**_ has the highest average revenue. These findings suggest that Nike and Adidas have distinct price points and the amount of offered discounts for their products, with Adidas offering a higher number of products across price points and potentially generating higher average revenue.
-
-
-![Distribution of Offered Discount Amounts between Adidas and Nike](https://github.com/fangoaish/Python__Analysis-of-Sportswear-Product-Sales-Adidas-vs.-Nike/assets/51399519/0b5bfc01-4bdd-4b17-a874-a0f43df0dced)
-
-![Number of Different Products by Price Category between Adidas and Nike](https://github.com/fangoaish/Python__Analysis-of-Sportswear-Product-Sales-Adidas-vs.-Nike/assets/51399519/d0d04744-dfc4-46db-828d-1bb2540aaf8d)
-
-![Average Revenue by Price Category between Adidas and Nike](https://github.com/fangoaish/Python__Analysis-of-Sportswear-Product-Sales-Adidas-vs.-Nike/assets/51399519/469f76fc-5173-43c1-ada9-843f919c3be6)
-
-
-### _2) Product Offerings - Recommendations_
-- Analyze Nike's discount ratio in comparison to Adidas and explore opportunities to optimize discount strategies, ensuring they align with market dynamics while maintaining brand value.
-- Evaluate and diversify the product categories to compete more effectively with Adidas, addressing potential gaps and increasing market share.
+### _2) Opportunity 2: Increase order frequency - Recommendations_
+Suggestions: By knowing the popular time and average number of purchases per user, we can introduce email marketing re-targeting to customers in view and cart events and offer promotional coupons for discounts. Offer free shipping for total purchases crossing a threshold and provide guest checkout functions with easy access to payment gateways.
 
 
 ### _3) Financial Performance_
