@@ -152,9 +152,9 @@ Suggestions: By knowing the popular time and average number of purchases per use
 
 The challenge in this coding task lies in converting numeric indices representing days of the week (0-6) into their corresponding day names (Monday-Sunday) within a pandas DataFrame. Initially, the DataFrame's index defaults to numeric values, making it less intuitive to interpret at a glance. 
 
-To address this, I utilize the map() function provided by pandas. By leveraging a dictionary named weekdays_index, which maps numeric indices to their respective day names, I employ the map() function to iterate through the DataFrame's index and replace each numeric index with its corresponding day name. 
+To address this, I utilize the ***map() function*** provided by pandas. By leveraging a dictionary named weekdays_index, which maps numeric indices to their respective day names, I employ the ***map() function*** to iterate through the DataFrame's index and replace each numeric index with its corresponding day name. 
 
-This approach seamlessly transforms the DataFrame's index into a more descriptive format, facilitating easier interpretation and analysis of the data based on the days of the week. Ultimately, by employing index.map(), the code efficiently resolves the challenge of converting numeric indices into their corresponding day names within the DataFrame.
+This approach seamlessly transforms the DataFrame's index into a more descriptive format, facilitating easier interpretation and analysis of the data based on the days of the week. Ultimately, by employing ***index.map()***, the code efficiently resolves the challenge of converting numeric indices into their corresponding day names within the DataFrame.
 
 ```ruby
 # Use for loop to get the event counts per weekday
@@ -177,7 +177,7 @@ I use the map() function on the DataFrame's index. This function takes a diction
 The map() function then iterates over each index value in the DataFrame, looks up the corresponding value in the weekdays_index dictionary, and replaces it with the mapped value (day name).
 After applying map(), the DataFrame's index is updated with the day names.
 So, index.map() is used here to transform the index values according to the mapping defined in the weekdays_index dictionary.
-
+'''
 ```
 
 
