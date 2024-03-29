@@ -111,7 +111,8 @@ The view and cart events per hour in a day have reached their peak at around **6
 
 ![Event Counts per Hour](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/130d1817-d28f-4fbf-a090-5265d9679838)
 
-![Event Counts per Weekday](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/c8841963-7c89-4faa-b0d6-3b7687ab685d)
+![Event Counts per Weekday](https://github.com/fangoaish/Python__eCommerce-Events-History-in-Cosmetics-Shop/assets/51399519/30a32d73-e7d8-4465-b534-1048cb593d27)
+
 
 
 ### _2) Opportunity 2: Increase order frequency - Recommendations_
@@ -145,6 +146,39 @@ Suggestions: By knowing the popular time and average number of purchases per use
     - Send email/push notifications around two order peak time( 9AM - 12PM, 6PM - 7PM) on Sunday and Monday to increase order frequency.
 3. **Increase order value**: Test benefits/promotions to increase average order value 
     - Incentivize users: whose avo falls below 43.03$ via benefits/promotions to increase the number of products sold per order.
+
+
+## Chanllenge
+
+The challenge in this coding task lies in converting numeric indices representing days of the week (0-6) into their corresponding day names (Monday-Sunday) within a pandas DataFrame. Initially, the DataFrame's index defaults to numeric values, making it less intuitive to interpret at a glance. 
+
+To address this, I utilize the map() function provided by pandas. By leveraging a dictionary named weekdays_index, which maps numeric indices to their respective day names, I employ the map() function to iterate through the DataFrame's index and replace each numeric index with its corresponding day name. 
+
+This approach seamlessly transforms the DataFrame's index into a more descriptive format, facilitating easier interpretation and analysis of the data based on the days of the week. Ultimately, by employing index.map(), the code efficiently resolves the challenge of converting numeric indices into their corresponding day names within the DataFrame.
+
+```ruby
+# Use for loop to get the event counts per weekday
+event_per_weekday = {}
+for event_type in event_type_sorted:
+    event_count = events[events.event_type == event_type].groupby("weekday")["event_type"].count()
+    event_per_weekday[event_type] = event_count
+
+# Create a dataframe from a dictionary
+weekdays_index = {0: "Monday", 1: "Tuesday", 2: "Wednesday", 3: "Thursday", 4: "Friday", 5: "Saturday", 6: "Sunday"}
+event_per_weekday_df = pd.DataFrame(event_per_weekday)
+
+# Map numeric index to day names
+event_per_weekday_df.index = event_per_weekday_df.index.map(weekdays_index)
+print(event_per_weekday_df)
+
+'''
+reference: https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html
+I use the map() function on the DataFrame's index. This function takes a dictionary or a function as an argument. In this case, I'm passing the weekdays_index dictionary.
+The map() function then iterates over each index value in the DataFrame, looks up the corresponding value in the weekdays_index dictionary, and replaces it with the mapped value (day name).
+After applying map(), the DataFrame's index is updated with the day names.
+So, index.map() is used here to transform the index values according to the mapping defined in the weekdays_index dictionary.
+
+```
 
 
 ## Limitations
